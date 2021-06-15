@@ -10,16 +10,38 @@
 </head>
 <body>
 
+  <main class="tela"></main>
+
 
 
 
 
   <script>
 
-    function render() {
-      console.log('[render]');
-    }
-    render();
+  const channels = [
+    'JrzenonDev',
+    'dev In Sampa',
+    'Dev Soutinho'
+  ];
+
+  const buttonTemplate = `
+    <button class="botaoDeLike">
+      <span class="owner">
+        JR Dev
+      </span>
+      ❤️
+      <span class="contador">0 likes</span>
+    </button>
+  `;
+
+  function render() {
+    console.log('[render]');
+
+    const $tela = document.querySelector('.tela');
+
+    $tela.innerHTML = channels;
+  }
+  render();
 
   </script>
 
