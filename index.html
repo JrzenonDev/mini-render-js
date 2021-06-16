@@ -24,23 +24,28 @@
     'Dev Soutinho'
   ];
 
-  const buttonTemplate = `
-    <button class="botaoDeLike">
-      <span class="owner">
-        JR Dev
-      </span>
-      ❤️
-      <span class="contador">0 likes</span>
-    </button>
-  `;
+  const buttonTemplate = function (channel) {
+      return `
+        <button class="botaoDeLike">
+          <span class="owner">
+            ${channel}
+          </span>
+          ❤️
+          <span class="contador">0 likes</span>
+        </button>
+      `;
+    }
 
   function render() {
     console.log('[render]');
 
     const $tela = document.querySelector('.tela');
 
-    $tela.innerHTML = channels;
+    $tela.innerHTML = channels.map((channel) => {
+      return buttonTemplate(channel);
+    }).join(''); // join (remove as vírgulas, que seria passado pelo toString)
   }
+
   render();
 
   </script>

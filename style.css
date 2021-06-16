@@ -1,0 +1,13 @@
+.botaoDeLike {
+  background-color: #fff;
+  border: #fff;
+  cursor: pointer;
+}
+
+.botaoDeLike:hover {
+  opacity: 0.5;
+}
+
+.owner {
+  margin-right: 200px;
+}
