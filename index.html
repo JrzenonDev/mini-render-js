@@ -12,20 +12,16 @@
 
   <main class="tela"></main>
 
-
-
-
-
   <script>
 
   const channels = [
     {
       name: 'JrzenonDev',
-      likes: 0,
+      likes: 2,
     },
     {
       name: 'dev In Sampa',
-      likes: 0,
+      likes: 4,
     },
     {
       name: 'Brazil JS',
@@ -33,17 +29,30 @@
     }
   ];
 
+  function handleLike(channelName) {
+    channels.forEach((currentChannel) => {
+      if(channelName === currentChannel.name) {
+        console.log('Atuliza os dados do: ', channelName);
+        currentChannel.likes = currentChannel.likes + 1;
+      }
+    });
+    render();
+  }
+
   const buttonTemplate = function (channel) {
-      return `
-        <button class="botaoDeLike">
-          <span class="owner">
-            ${channel}
-          </span>
-          ❤️
-          <span class="contador">0 likes</span>
-        </button>
-      `;
-    }
+    return `
+      <button class="botaoDeLike" onclick="handleLike('${channel.name}')">
+        <span class="owner">
+          ${channel.name}
+        </span>
+        <span class="contador">
+          ❤️ ${channel.likes} likes
+        </span>
+      </button>
+    `;
+  }
+
+  // Lógica de renderização
 
   function render() {
     console.log('[render]');
